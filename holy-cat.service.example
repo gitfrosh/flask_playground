@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve holy-cow
+After=network.target
+
+[Service]
+User=ulrike
+Group=www-data
+WorkingDirectory=/home/ulrike/python_playground
+Environment="PATH=/home/ulrike/python_playground/holy-cow/bin"
+ExecStart=/home/ulrike/python_playground/holy-cow/bin/uwsgi --ini holy-cow.ini
+
+[Install]
+WantedBy=multi-user.target
